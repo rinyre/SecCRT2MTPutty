@@ -3,7 +3,7 @@ Imports System.IO
 Imports System.Xml
 'Imports org.jivesoftware.util
 
-Module ImportSecureCRT2MTPutty
+Module SecCRT2MTPutty
 
     Class Server
         'Creating servers as a datastruct for simplicity of storage/retrieval
@@ -104,7 +104,7 @@ Module ImportSecureCRT2MTPutty
                         End If
                     Loop
                     If Hostname IsNot "" Then
-                        Console.WriteLine("Processed " + fri.Name + " for username " + Username)
+                        Debug.WriteLine("Processed " + fri.Name + " for username " + Username)
                         Servers.Add(New Server(Displayname, Hostname, Port, Username))
                     End If
                 Catch ex As Exception
@@ -146,7 +146,7 @@ Module ImportSecureCRT2MTPutty
                 writer.WriteElementString("CLParams", server.ServerName.ToString + " -ssh -l " + server.UserName.ToString + " -P " + server.Port.ToString)
                 writer.WriteElementString("ScriptDelay", 5000)
                 writer.WriteEndElement()
-                Console.WriteLine("Created node for " + server.DisplayName.ToString)
+                Debug.WriteLine("Created node for " + server.DisplayName.ToString)
             Next
             writer.WriteEndElement()
             writer.WriteEndElement()
@@ -155,7 +155,7 @@ Module ImportSecureCRT2MTPutty
             writer.WriteEndDocument()
 
         End Using
-        Console.WriteLine("Finished!")
+        Debug.WriteLine("Finished!")
 
     End Sub
 
