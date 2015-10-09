@@ -1,7 +1,10 @@
 ﻿Imports System
 Imports System.IO
 Imports System.Xml
-'Imports org.jivesoftware.util
+Imports Org.BouncyCastle.Utilities.Encoders
+Imports Org.BouncyCastle.Utilities.Collections
+Imports SecCRT2MTPutty.Blowfish
+
 
 Module SecCRT2MTPutty
 
@@ -24,50 +27,42 @@ Module SecCRT2MTPutty
         Return Environment.ExpandEnvironmentVariables(Path)
     End Function
 
-    'Function decrypt(ByVal encpass As String) ' Unused presently
-    '    '' Unused. Taken from Python code at http://www.synacktiv.com/ressources/VanDyke_SecureCRT_decrypt.py
-    '    'from Crypto.Cipher import Blowfish
-    '    '        import argparse
-    '    '        import re
+    Function decrypt(ByVal encpass As String) ' Unused presently
+        '    '' Unused. Taken from Python code at http://www.synacktiv.com/ressources/VanDyke_SecureCRT_decrypt.py
+        '    'from Crypto.Cipher import Blowfish
+        '    '        import argparse
+        '    '        import re
 
-    '    '        def decrypt(password)
-    '    '	c1 = Blowfish.new('5F B0 45 A2 94 17 D9 16 C6 C6 A2 FF 06 41 82 B7'.replace(' ','').decode('hex'), Blowfish.MODE_CBC, '\x00'*8)
-    '    '	c2 = Blowfish.new('24 A6 3D DE 5B D3 B3 82 9C 7E 06 F4 08 16 AA 07'.replace(' ','').decode('hex'), Blowfish.MODE_CBC, '\x00'*8)
-    '    '	padded = c1.decrypt(c2.decrypt(password.decode('hex'))[4:-4])
-    '    '	p = ''
-    '    '	while padded[:2] != '\x00\x00' :
-    '    '		p += padded[:2]
-    '    '		padded = padded[2:]
-    '    '	return p.decode('UTF-16')
-    '    'REGEX_PASWORD = re.compile(ur'S:"Password"=u([0-9a-f]+)')
-    '    'def password(x) :
-    '    '    m = REGEX_PASWORD.search(x)
-    '    '    If m Then
-    '    '        Return decrypt(m.group(1))
-    '    '    Return '???'   
+        '    '        def decrypt(password)
+        '    '	c1 = Blowfish.new('5F B0 45 A2 94 17 D9 16 C6 C6 A2 FF 06 41 82 B7'.replace(' ','').decode('hex'), Blowfish.MODE_CBC, '\x00'*8)
+        '    '	c2 = Blowfish.new('24 A6 3D DE 5B D3 B3 82 9C 7E 06 F4 08 16 AA 07'.replace(' ','').decode('hex'), Blowfish.MODE_CBC, '\x00'*8)
+        '    '	padded = c1.decrypt(c2.decrypt(password.decode('hex'))[4:-4])
+        '    '	p = ''
+        '    '	while padded[:2] != '\x00\x00' :
+        '    '		p += padded[:2]
+        '    '		padded = padded[2:]
+        '    '	return p.decode('UTF-16')
+        '    'REGEX_PASWORD = re.compile(ur'S:"Password"=u([0-9a-f]+)')
+        '    'def password(x) :
+        '    '    m = REGEX_PASWORD.search(x)
+        '    '    If m Then
+        '    '        Return decrypt(m.group(1))
+        '    '    Return '???'   
+        'Dim b1 As Encryption.Blowfish = New Encryption.Blowfish(Hex.Decode("5FB045A29417D916C6C6A2FF064182B7"))
+        'Dim b2 As Encryption.Blowfish = New Encryption.Blowfish(Hex.Decode("24A63DDE5BD3B3829C7E06F40816AA07"))
+        'Dim step1 = Hex.Decode(encpass)
+        'b2.Decipher(step1, step1.length)
+        'b1.Decipher(step1, step1.Length)
+        'Dim p = ""
+        'Dim padded = step1.ToString
+        'While padded.Substring(0, 2) IsNot vbNullChar + vbNullChar
+        '    p += padded.Substring(0, 2)
+        '    padded = padded.Substring(2)
+        'End While
 
-    '    Dim hexkey1 As Array = "5F B0 45 A2 94 17 D9 16 C6 C6 A2 FF 06 41 82 B7".Split(" ")
-    '    Dim hexkey2 As Array = "24 A6 3D DE 5B D3 B3 82 9C 7E 06 F4 08 16 AA 07".Split(" ")
-    '    Dim key1 = ""
-    '    Dim key2 = ""
-    '    For Each keypart In hexkey1
-    '        key1 += Convert.ToChar(Convert.ToInt16(keypart, 16))
-    '    Next
-    '    For Each keypart In hexkey2
-    '        key2 += Convert.ToChar(Convert.ToInt16(keypart, 16))
-    '    Next
-    '    Dim c1 As Blowfish = New Blowfish(key1)
-    '    Dim c2 As Blowfish = New Blowfish(key2)
-    '    Dim step1 = c2.decryptString(encpass)
-    '    Dim padded = c1.decryptString(step1.Substring(4, step1.Length - 5))
-    '    c1.hashCode()
-    '    Dim p = ""
-    '    While padded.Substring(0, 2) IsNot vbNullChar + vbNullChar
-    '        p += padded.Substring(0, 2)
-    '        padded = padded.Substring(2)
-    '    End While
-    '    Return Convert.ToString(p.Cast(Of String))
-    'End Function
+        'Return Convert.ToString(p)
+        Return Nothing
+    End Function
 
     Sub Main()
         Dim inipath As String = ExpVar("%AppData%\VanDyke\Config\Sessions")
@@ -111,9 +106,9 @@ Module SecCRT2MTPutty
                     Debug.WriteLine(ex.Message)
 
                 End Try
-                'If Password IsNot "" Then
-                '    Debug.WriteLine(decrypt(Password))
-                'End If
+                If Password IsNot "" Then
+                    Debug.WriteLine(decrypt(Password))
+                End If
             End If
         Next
 
