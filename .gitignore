@@ -5,20 +5,27 @@
 *.suo
 *.user
 <<<<<<< HEAD
+<<<<<<< HEAD
 *.sln.docstates
 
 =======
+=======
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 *.userosscache
 *.sln.docstates
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+<<<<<<< HEAD
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
+<<<<<<< HEAD
 <<<<<<< HEAD
 x64/
 =======
@@ -26,11 +33,17 @@ x64/
 x64/
 x86/
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+[Rr]eleases/
+x64/
+x86/
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 build/
 bld/
 [Bb]in/
 [Oo]bj/
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 # Roslyn cache directories
 *.ide/
@@ -38,16 +51,24 @@ bld/
 # Visual Studo 2015 cache/options directory
 .vs/
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+# Visual Studo 2015 cache/options directory
+.vs/
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #NUNIT
 =======
 # NUNIT
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+# NUNIT
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 *.VisualState.xml
 TestResult.xml
 
@@ -148,6 +169,7 @@ publish/
 *.[Pp]ublish.xml
 *.azurePubxml
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## TODO: Comment the next line if you want to checkin your
 ## web deploy settings but do note that will include unencrypted
 ## passwords
@@ -165,6 +187,8 @@ packages/*
 # (and the packages folder if the line above has been uncommented)
 !packages/build/
 =======
+=======
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 # TODO: Comment the next line if you want to checkin your web deploy settings 
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
@@ -178,7 +202,10 @@ packages/*
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
+<<<<<<< HEAD
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 
 # Windows Azure Build Output
 csx/
@@ -189,11 +216,15 @@ AppPackages/
 
 # Others
 <<<<<<< HEAD
+<<<<<<< HEAD
 sql/
 *.Cache
 =======
 *.[Cc]ache
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+*.[Cc]ache
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 ClientBin/
 [Ss]tyle[Cc]op.*
 ~$*
@@ -204,9 +235,13 @@ ClientBin/
 *.publishsettings
 node_modules/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 bower_components/
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+bower_components/
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 
 # RIA/Silverlight projects
 Generated_Code/
@@ -232,11 +267,14 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # LightSwitch generated files
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 =======
+=======
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 
@@ -245,4 +283,7 @@ ModelManifest.xml
 
 # Visual Studio 6 workspace options file
 *.opt
+<<<<<<< HEAD
 >>>>>>> 6e9059fcb18a474ba882bc18a04606912bbc507b
+=======
+>>>>>>> ac8aaf7c6360e6ac834edcfb185f4751c2d3ea19
